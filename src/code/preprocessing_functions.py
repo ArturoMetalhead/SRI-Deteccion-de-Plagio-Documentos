@@ -6,7 +6,6 @@ import gensim
 # import numpy as np
 from math import log
 
-
 def tokenization(documents):
     """
     Perform tokenization on a list of documents using the "en_core_web_sm" model from spaCy.
@@ -135,24 +134,3 @@ def vector_representation(filtered_docs, vocabulary):
 
     return vector_repr
 
-def docs_vectorial_rep(vocabulary, filtered_tokens):
-    """
-    Generate vectorial representations of documents based on the presence or absence of vocabulary tokens.
-
-    Args:
-        vocabulary (list): A list of tokens representing the vocabulary.
-        filtered_tokens (list): A list of tokenized documents with filtered tokens.
-
-    Returns:
-        list: A list of vectorial representations of the documents.
-    """
-    vectorial_docs = []
-    for doc in filtered_tokens:
-        doc_rep = []
-        for voc in vocabulary:
-            if voc in doc:
-                doc_rep.append(1)
-            else: 
-                doc_rep.append(0)
-        vectorial_docs.append(doc_rep)
-    return vectorial_docs

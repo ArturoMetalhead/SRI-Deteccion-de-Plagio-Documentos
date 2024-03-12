@@ -1,6 +1,6 @@
-from preprocessing_functions import *
+from src.code.preprocessing_functions import *
 
-def preprocess(documents, queries, qrels):
+def preprocess(documents):
     """
     Preprocess a list of documents by performing tokenization, noise removal, stopword removal,
     morphological reduction, filtering by occurrence, building a vocabulary, vector representation,
@@ -33,4 +33,4 @@ def preprocess(documents, queries, qrels):
     #Representar Vectorialmente
     vector_rep = vector_representation(filtered_docs, vocabulary)
 
-    vectorial_docs = docs_vectorial_rep(vocabulary, filtered_docs)
+    return vector_rep
