@@ -1,19 +1,15 @@
-from code.lexic_preprocessing_functions import *
+from src.code.lexic_preprocessing_functions import *
+import numpy as np
 
-def preprocess(documents):
-    """
-    Preprocess a list of documents by performing tokenization, noise removal, stopword removal,
-    morphological reduction, filtering by occurrence, building a vocabulary, vector representation,
-    part-of-speech tagging, calculating correlation matrix, and saving the preprocessed data to a JSON file.
+def preprocess(sentence1,sentence2):
 
-    Args:
-        documents (list): A list of documents to be preprocessed.
+    sentences= sentence1 + sentence2
 
-    Returns:
-        None
-    """
+    vectors1=[]
+    vectors2=[]
+
     #Tokenizar documentos
-    tokenized_docs = tokenization(documents) 
+    tokenized_docs = tokenization(sentences) 
 
     #Eliminar ruido
     cleaned_docs = remove_noise(tokenized_docs)
@@ -33,4 +29,15 @@ def preprocess(documents):
     #Representar Vectorialmente
     vector_rep = vector_representation(filtered_docs, vocabulary)
 
-    return vector_rep
+    #Agregar vectores a la lista
+    for i in range(len(sentence1)):
+        vectors1.append(vector_rep[i])
+    
+    for i in range(len(sentence1),len(sentences)):
+        vectors2.append(vector_rep[i])
+
+    #Convertir a np array
+    vectors1=np.array(vectors1)
+    vectors2=np.array(vectors2)
+
+    return vectors1, vectors2
