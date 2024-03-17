@@ -1,4 +1,4 @@
-from src.code.preprocessing_functions import *
+from code.lexic_preprocessing_functions import *
 
 def preprocess(documents):
     """

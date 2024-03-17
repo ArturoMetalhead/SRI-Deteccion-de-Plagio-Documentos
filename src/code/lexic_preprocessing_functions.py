@@ -1,9 +1,6 @@
 import nltk
 import spacy
 import gensim
-# import pandas as pd
-# from scipy.stats import chi2_contingency
-# import numpy as np
 from math import log
 
 def tokenization(documents):
@@ -133,4 +130,3 @@ def vector_representation(filtered_docs, vocabulary):
         vector_repr.append(doc_i)
 
     return vector_repr
-
