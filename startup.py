@@ -1,8 +1,14 @@
 from src.code.lexic_preprocessing import *
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
+from src.code.utils import *
 
 def detect_plagiarism(documents):
+
+    # Separar por oraciones los documentos
+
+    sentences1 = split_sentences(documents[0])
+    sentences2 = split_sentences(documents[1])
 
     # Preprocesar documentos
     vect_text = np.array(preprocess(documents))
