@@ -2,6 +2,23 @@ from src.code.lexic_preprocessing_functions import *
 import numpy as np
 
 def preprocess(sentence1,sentence2):
+    """
+    Preprocess two sentences to be compared
+
+    Parameters
+    ----------
+    sentence1 : str
+        First sentence to be compared
+    sentence2 : str
+        Second sentence to be compared
+
+    Returns
+    -------
+    np.array
+        Vector representation of the first sentence
+    np.array
+        Vector representation of the second sentence
+    """
 
     sentences= sentence1 + sentence2
 

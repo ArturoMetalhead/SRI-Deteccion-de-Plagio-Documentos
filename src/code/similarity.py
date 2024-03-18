@@ -1,6 +1,21 @@
 from sklearn.metrics.pairwise import cosine_similarity
 
 def similarity(vect_text1,vect_text2):
+    
+    """
+    Calculate the similarity between two texts using cosine similarity.
+
+    Parameters
+    ----------
+    vect_text1 : list
+
+    vect_text2 : list
+
+    Returns
+    -------
+    float
+    """
+
 
     # Calcular similitud coseno entre cada una de las oraciones entre documentos
 
