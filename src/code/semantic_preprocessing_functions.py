@@ -1,6 +1,6 @@
 import torch
 from transformers import BertTokenizer, BertModel
-from utils import split_sentences
+from src.code.utils import *
 import torch.nn.functional as F
 
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
