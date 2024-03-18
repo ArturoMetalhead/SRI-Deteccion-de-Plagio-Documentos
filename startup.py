@@ -17,12 +17,12 @@ def detect_plagiarism():
     lex1,lex2 = preprocess(sentences1,sentences2)
 
     #Preprocesar documentos para similitud semantica
-    semantic_list1, semantic_list2 = vectorize_sentences(sentences1), vectorize_sentences(sentences2)
+    sem1, sem2 = vectorize_sentences(sentences1), vectorize_sentences(sentences2)
 
     # Calcular similitud lexica entre los documentos
     lexic_sim=similarity(lex1,lex2)
 
-    sem_sim = similarity(semantic_list1, semantic_list2)
+    sem_sim = similarity(sem1, sem2)
 
     total_sim = total_similarity(lexic_sim, sem_sim)
     return lexic_sim, sem_sim, total_sim
@@ -31,6 +31,9 @@ def detect_plagiarism():
 def total_similarity(lexic_sim, sem_sim):
     return ((3/4)*lexic_sim + (1/4)*sem_sim)
 
-#document1 = "the dog eats a fish. I like big butts and i cannot lie."
-#document2 = "the cat eats a fish. Its only for the weak. No one can deny."
-print(detect_plagiarism())
+
+lex, sem, total = detect_plagiarism()
+print(f"Similitud Léxica: {lex}")
+print(f"Similitud Semántica: {sem}")
+print(f"Similitud Total Calculada: {total}")
+
