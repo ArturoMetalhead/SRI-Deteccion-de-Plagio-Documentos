@@ -3,6 +3,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 from src.code.utils import *
 from src.code.lexic_similarity import *
+from src.code.semantic_similarity import *
+from src.code.semantic_preprocessing_functions import *
 
 def detect_plagiarism():
 
@@ -17,14 +19,20 @@ def detect_plagiarism():
     sentences1 = split_sentences(documents[0])
     sentences2 = split_sentences(documents[1])
 
-    # Preprocesar documentos
-    vect_text1,vect_text2 = preprocess(sentences1,sentences2)
+    # Preprocesar documentos para similitud lexica
+    lex1,lex2 = preprocess(sentences1,sentences2)
 
-    # Calcular similitud entre los documentos
-    lexic_sim=lexic_similarity(vect_text1,vect_text2)
+    #Preprocesar documentos para similitud semantica
+    semantic_list1, semantic_list2 = vectorize_sentences(sentences1), vectorize_sentences(sentences2)
 
-    # Retornar similitud
-    return lexic_sim
+    # Calcular similitud lexica entre los documentos
+    lexic_sim=lexic_similarity(lex1,lex2)
+
+    sem_sim = semantic_similarity(semantic_list1, semantic_list2)
+
+    return lexic_sim, sem_sim
+
+    
 
 
 #document1 = "the dog eats a fish. I like big butts and i cannot lie."
