@@ -8,12 +8,7 @@ from src.code.semantic_preprocessing_functions import *
 
 def detect_plagiarism():
 
-    # Lee input de usuario
-    doc1 = input("Ingrese el nombre del primer documento: ")
-    doc2 = input("Ingrese el nombre del segundo documento: ")
-
-    # Leer documentos de la carpeta docs
-    documents = read_documents(doc1,doc2)
+    documents=get_documents()
 
     # Separar por oraciones los documentos
     sentences1 = split_sentences(documents[0])
@@ -30,12 +25,13 @@ def detect_plagiarism():
 
     sem_sim = semantic_similarity(semantic_list1, semantic_list2)
 
-    return lexic_sim, sem_sim
+    total_sim = total_similarity(lexic_sim, sem_sim)
+    return lexic_sim, sem_sim, total_sim
 
     
-
+def total_similarity(lexic_sim, sem_sim):
+    return ((3/4)*lexic_sim + (1/4)*sem_sim)
 
 #document1 = "the dog eats a fish. I like big butts and i cannot lie."
 #document2 = "the cat eats a fish. Its only for the weak. No one can deny."
-similarity = detect_plagiarism()
-print(similarity)
+print(detect_plagiarism())

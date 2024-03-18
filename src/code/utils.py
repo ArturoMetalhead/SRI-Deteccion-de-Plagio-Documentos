@@ -1,3 +1,4 @@
+import os
 import re
 def split_sentences(text):
     text = text.replace("\n", " ")
@@ -16,3 +17,17 @@ def read_documents(doc1,doc2):
     with open("src/docs/"+doc2, "r") as file:
         document2 = file.read()
     return [document1, document2]
+
+def get_documents():
+     path = "src/docs"
+     docs_names = os.listdir(path)
+
+     print("Escoja los documentos que desea comparar")
+     for i in range(0,len(docs_names)):
+        print(f"{i+1}.{docs_names[i]}")
+
+     doc1_index = int(input("Primer documento:"))
+     doc2_index = int(input("Segundo documento:"))
+
+     doc1, doc2 = read_documents(docs_names[doc1_index-1], docs_names[doc2_index-1])
+     return [doc1, doc2]
