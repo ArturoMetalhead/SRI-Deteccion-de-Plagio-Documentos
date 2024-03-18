@@ -1,0 +1,11 @@
+El proyecto se ha desarrollado con el lenguaje de programción Python. Para la implementación de diferentes funcionalidades necesarias para el correcto funcionamiento del algoritmo se han utilizado las siguientes bibliotecas o módulos de Python:
+-numpy: para el trabajo con array.
+-sklearn: para el cálculo de Similitud Coseno.
+-transformers: para tokenizar y trabajar con el modelo BERT.
+-torch: para el funcionamiento del modelo BERT.
+-gensim: para la tokenización para el TF-IDF.
+-spacy: para el preprocesamiento.
+-nltk: para el preprocesamiento.
+-math: para el trabajo con funciones matemáticas.
+-os: para el trabajo con los archivos de un directorio.
+-re: para trabajo con oraciones. 
