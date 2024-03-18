@@ -11,7 +11,7 @@ def lexic_similarity(vect_text1,vect_text2):
         sim=[]
 
         for j in vect_text2:
-            sim.append(cosine_similarity(i[0].reshape(1, -1), j[1].reshape(1, -1))[0][0])
+            sim.append(cosine_similarity(i.reshape(1, -1), j.reshape(1, -1))[0][0])
         
         max_sim= max(sim)
         bests_sims.append(max_sim)

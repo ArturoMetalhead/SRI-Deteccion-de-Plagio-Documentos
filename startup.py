@@ -4,10 +4,16 @@ import numpy as np
 from src.code.utils import *
 from src.code.lexic_similarity import *
 
-def detect_plagiarism(documents):
+def detect_plagiarism():
+
+    # Lee input de usuario
+    doc1 = input("Ingrese el nombre del primer documento: ")
+    doc2 = input("Ingrese el nombre del segundo documento: ")
+
+    # Leer documentos de la carpeta docs
+    documents = read_documents(doc1,doc2)
 
     # Separar por oraciones los documentos
-
     sentences1 = split_sentences(documents[0])
     sentences2 = split_sentences(documents[1])
 
@@ -21,7 +27,7 @@ def detect_plagiarism(documents):
     return lexic_sim
 
 
-document1 = "the dog eats a fish. I like big butts and i cannot lie."
-document2 = "the cat eats a fish. Its only for the weak. No one can deny."
-similarity = detect_plagiarism([document1, document2])
+#document1 = "the dog eats a fish. I like big butts and i cannot lie."
+#document2 = "the cat eats a fish. Its only for the weak. No one can deny."
+similarity = detect_plagiarism()
 print(similarity)
