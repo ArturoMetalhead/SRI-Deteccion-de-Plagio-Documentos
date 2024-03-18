@@ -3,7 +3,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 from src.code.utils import *
 from src.code.similarity import *
-from src.code.semantic_similarity import *
 from src.code.semantic_preprocessing_functions import *
 
 def detect_plagiarism():
